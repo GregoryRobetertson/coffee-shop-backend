@@ -8,4 +8,4 @@ function role(allowedRoles) {
     }
 }
 
-module.exports = allowedRoles;
+module.exports = role;
