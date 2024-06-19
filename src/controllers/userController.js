@@ -12,5 +12,16 @@ try {
 }
 
 async function login(req, res, next) {
-    req.status(200).json({token: req.token, user:req.register})
+    req.status(200).json({token: req.token, user:req.user})
 }
+
+async function getUsers(req, res, next) {
+    try {
+        const users = await User.find();
+        res.status(200).json(users)
+    } catch (error) {
+        next(error)
+    }
+}
+
+module.exports = {login, register, getUsers}
